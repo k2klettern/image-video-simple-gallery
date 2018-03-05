@@ -138,7 +138,6 @@ if(!class_exists('ivsPlugin')) {
 					'action'      => 'photo_gallery_upload',            // the ajax action name
 				),
 			);
-
 			// we should probably not apply this filter, plugins may expect wp's media uploader...
 			$plupload_init = apply_filters('plupload_init', $plupload_init);
 			$tags = get_terms( array( 'post_types' => 'images', 'taxonomy' => 'video_tags', 'hide_empty' => false ) );
@@ -192,6 +191,7 @@ if(!class_exists('ivsPlugin')) {
 
                     // a file was uploaded
                     uploader.bind('FileUploaded', function(up, file, response) {
+                        console.log(response);
                       var obj = $.parseJSON(response['response']);
                       var imgurl = '<div style="max-height:150px; min-height:150px; overflow: hidden"><a href=\"#TB_inline?width=500&height=400&inlineId=ivs-options-'+ lastkey +'" class="thickbox"><img class="alignnone size-medium wp-image-' + obj.id + '" src="' + obj.url + '" width="150" height="auto"></a><span class="close"></span></div>';
                       var hidden = '<input type="hidden" name="images[' + lastkey + '][id]" value="' + obj.id + '"><input type="hidden" name="images[' + lastkey + '][url]" value="' + obj.url + '">';
@@ -230,7 +230,6 @@ if(!class_exists('ivsPlugin')) {
 				// you can use WP's wp_handle_upload() function:
 				$file = $_FILES['async-upload'];
 				$status = wp_handle_upload($file, array('test_form'=>true, 'action' => 'photo_gallery_upload'));
-
 				// and output the results or something...
 				$result = array('path' => $status['file'], 'url' => $status['url']);
 				$result['id'] = wp_insert_attachment( array(

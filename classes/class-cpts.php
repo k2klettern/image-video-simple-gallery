@@ -28,7 +28,7 @@ if(!class_exists('ivsCpt')) {
 				),
 				'public' => true,
 				'has_archive' => true,
-				'rewrite' => array('slug' => 'galery'),
+				'rewrite' => array('slug' => 'galeria'),
 				'supports' => array('title'),
 				'menu_icon' => 'dashicons-images-alt'
 			)

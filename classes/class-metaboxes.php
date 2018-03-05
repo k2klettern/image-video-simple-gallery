@@ -73,22 +73,22 @@ if(!class_exists('ivsMetaboxes')) {
                                                     </select>
                                                </td>
                                                <td>
-                                                    Filtro por Tags <br><select multiple class="tagselector" size="6" type="text" name="gallery[<?php echo $key; ?>][tags][]">";
-                                        <?php
-                                         if ($gallery[$key]['type'] == "video") {
-	                                         foreach ($vidstags as $i => $tag) {
-		                                         echo "<option value=\"$tag->term_id\"";
-		                                         echo isset($gall['tags']) && in_array($tag->term_id, $gall['tags']) ? "selected" : "";
-		                                         echo ">$tag->name</option>";
-	                                         }
-                                         } else {
-	                                         foreach ( $tags as $i => $tag ) {
-		                                         echo "<option value=\"$tag->term_id\"";
-		                                         echo isset( $gall['tags'] ) && in_array( $tag->term_id, $gall['tags'] ) ? "selected" : "";
-		                                         echo ">$tag->name</option>";
-	                                         }
-                                         }?>
-                                        </select>
+                                                   Filtro por Tags <br><select multiple class="tagselector" size="6" type="text" name="gallery[<?php echo $key; ?>][tags][]">";
+			                                           <?php
+			                                           if ($gallery[$key]['type'] == "video") {
+				                                           foreach ($vidstags as $i => $tag) {
+					                                           echo "<option value=\"$tag->term_id\"";
+					                                           echo isset($gall['tags']) && in_array($tag->term_id, $gall['tags']) ? "selected" : "";
+					                                           echo ">$tag->name</option>";
+				                                           }
+			                                           } else {
+				                                           foreach ( $tags as $i => $tag ) {
+					                                           echo "<option value=\"$tag->term_id\"";
+					                                           echo isset( $gall['tags'] ) && in_array( $tag->term_id, $gall['tags'] ) ? "selected" : "";
+					                                           echo ">$tag->name</option>";
+				                                           }
+			                                           }?>
+                                                   </select>
                                                    <br/><sup>Usa Ctrl para seleccionar más de uno.</sup>
                                                </td>
                                            </tr>
@@ -226,8 +226,8 @@ if(!class_exists('ivsMetaboxes')) {
                         <tr>
                             <td class="check-column num"></td>
                             <td>Video URL</td>
-                            <td>Show in</td>
-                            <td>Filter Tags</td>
+                            <td>Mostrar en</td>
+                            <td>Filtros</td>
                             <td class="check-column"></td>
                         </tr>
                     </thead>
@@ -260,7 +260,7 @@ if(!class_exists('ivsMetaboxes')) {
                                         </select><br/>
                                         <sup>Usa Ctrl para seleccionar más de uno.</sup>
                                     <?php } else { ?>
-                                    No tags Created
+                                          No hay Tags Creados
                                     <?php } ?>
                                 </td>
                                 <td>
@@ -292,7 +292,7 @@ if(!class_exists('ivsMetaboxes')) {
                                 </select><br/>
                                 <sup>Usa Ctrl para seleccionar más de uno.</sup>
 			                <?php } else { ?>
-                                No tags Created
+                                 No hay Tags Creados
 			                <?php } ?>
                         </td>
                         <td>
