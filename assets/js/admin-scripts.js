@@ -1,3 +1,9 @@
+function showImage(src, target) {
+    var fr=new FileReader();
+    fr.onload = function(e) { target.src = this.result; };
+    fr.readAsDataURL(src.files[0]);
+}
+
 jQuery(document).ready(function ($) {
     $(".draggable > li").draggable({
         revert: "invalid",
