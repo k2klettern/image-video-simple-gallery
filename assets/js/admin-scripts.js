@@ -135,7 +135,7 @@ jQuery(document).ready(function ($) {
         $(".input-file").before(
             function() {
                 if ( ! $(this).prev().hasClass('input-ghost') ) {
-                    var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+                    var element = $("<input type='file' id='input-ghost' class='input-ghost' style='visibility:hidden; height:0'>");
                     element.attr("name",$(this).attr("name"));
                     element.change(function(){
                         element.next(element).find('input').val((element.val()).split('\\').pop());
@@ -160,5 +160,18 @@ jQuery(document).ready(function ($) {
 
     bs_input_file();
 
+    $('INPUT[type="file"]').change(function (e) {
+        var fileVariable = document.getElementById("input-ghost").files[0];
+        if(fileVariable.type.match('image.*'))
+        {
+            var src = document.getElementById("input-ghost");
+            var target = document.getElementById("inputed-image");
+            showImage(src, target);
+
+        } else {
+            $('<span class="msg" style="color:red">No se permite ese tipo de Archivo</span>').appendTo('.input-ghost');
+            this.value = '';
+        }
+    });
 
 });
